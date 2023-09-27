@@ -351,7 +351,7 @@ static void test_grade_empty_if_no_students_in_grade(void)
 
 static void test_student_not_added_to_same_grade_more_than_once(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    uint8_t desired_grade = 2;
    student_t expected[] = {
       { 2, "Blair" }, 
