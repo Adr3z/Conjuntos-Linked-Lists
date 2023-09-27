@@ -90,7 +90,7 @@ static void test_adding_multiple_students_in_same_grade_in_roster(void)
 
 static void test_multiple_students_in_same_grade_are_added_to_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
          { 2, "Blair" }, 
          { 2, "James" },
@@ -122,7 +122,7 @@ static void test_remove_first_student(void)
 
 static void test_remove_middle_student(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
          { 2, "Blair" }, 
          { 2, "Paul" },
