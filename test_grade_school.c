@@ -71,7 +71,7 @@ static void test_remove_student(void)
 
 static void test_cannot_remove_student_with_misspeled_name(void)
 {
-   //TEST_IGNORE();   // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    
    TEST_ASSERT_TRUE(add_student(&roster, "Aimee", 2));
    TEST_ASSERT_FALSE(remove_student(&roster, "aimee"));
@@ -81,7 +81,7 @@ static void test_cannot_remove_student_with_misspeled_name(void)
 
 static void test_adding_multiple_students_in_same_grade_in_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    
    TEST_ASSERT_TRUE(add_student(&roster, "Blair", 2));
    TEST_ASSERT_TRUE(add_student(&roster, "James", 2));
