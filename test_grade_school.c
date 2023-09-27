@@ -244,7 +244,7 @@ static void test_students_in_multiple_grades_are_added_to_roster(void)
 
 static void test_cannot_add_same_student_to_multiple_grades_in_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    TEST_ASSERT_TRUE(add_student(&roster, "Blair", 2));
    TEST_ASSERT_TRUE(add_student(&roster, "James", 2));
    TEST_ASSERT_FALSE(add_student(&roster, "James", 3));
