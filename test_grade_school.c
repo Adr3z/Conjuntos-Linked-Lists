@@ -230,7 +230,7 @@ static void test_adding_students_in_multiple_grades(void)
 
 static void test_students_in_multiple_grades_are_added_to_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
       { 3, "Chelsea" }, 
       { 7, "Logan" } 
