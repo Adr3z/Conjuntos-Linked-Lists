@@ -38,7 +38,7 @@ static void test_roster_is_empty_when_no_student_added(void)
 
 static void test_cannot_remove_on_empty_list(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    remove_student(&roster, "Aimee");
    TEST_ASSERT_EQUAL(0, roster.size);
    TEST_ASSERT_NULL(roster.students);
