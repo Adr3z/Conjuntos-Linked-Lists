@@ -164,7 +164,7 @@ static void test_cannot_add_student_to_same_grade_more_than_once(void)
 
 static void test_cannot_remove_student_more_than_once(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    TEST_ASSERT_TRUE(add_student(&roster, "James", 2));
    TEST_ASSERT_TRUE(add_student(&roster, "Blair", 2));
    TEST_ASSERT_TRUE(remove_student(&roster, "James"));
