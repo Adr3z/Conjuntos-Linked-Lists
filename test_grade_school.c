@@ -445,6 +445,42 @@ static void test_students_are_sorted_by_name_in_grade(void)
    check_rosters(expected, sizeof(expected)/sizeof(expected[0]), &actual);
    free_roster(&actual);
 }
+
+static void own_test(void)
+{
+    add_student(&roster, "James", 2);
+    add_student(&roster, "Paul", 2);
+    add_student(&roster, "Anna", 1);
+    add_student(&roster, "Zoe", 2);
+    add_student(&roster, "Charlie", 1);
+    add_student(&roster, "Alex", 2);
+    add_student(&roster, "Barb", 1);
+
+    student_t expected_roster[] = {
+        {1, "Anna"},
+        {1, "Barb"},
+        {1, "Charlie"},
+        {2, "Alex"},
+        {2, "James"},
+        {2, "Paul"},
+        {2, "Zoe"}
+    };
+    
+    check_rosters(expected_roster, sizeof(expected_roster) / sizeof(expected_roster[0]), &roster);
+
+    remove_student(&roster, "Anna");
+    remove_student(&roster, "Paul");
+    remove_student(&roster, "Alex");
+
+    student_t expected_roster_after_removal[] = {
+        {1, "Barb"},
+        {1, "Charlie"},
+        {2, "James"},
+        {2, "Zoe"}
+    };
+
+    check_rosters(expected_roster_after_removal, sizeof(expected_roster_after_removal) / sizeof(expected_roster_after_removal[0]), &roster);
+}
  
 int main(void)
 {
@@ -480,6 +516,7 @@ int main(void)
    RUN_TEST(test_student_not_added_to_multiple_grades);
    RUN_TEST(test_student_not_added_to_other_grade_for_multiple_grades);
    RUN_TEST(test_students_are_sorted_by_name_in_grade); 
-
+   RUN_TEST(own_test);
+   
    return UnityEnd();
 }
