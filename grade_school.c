@@ -17,11 +17,8 @@ void free_roster(roster_t *roster)
     roster->size = 0;
 }
 
-bool add_student(roster_t *roster, const char *name, uint8_t grade) 
+node_t *create_student_node(const char *name, uint8_t grade) 
 {
-    node_t *current = roster->students;
-    node_t *prev = NULL;
-
     node_t *new_student = (node_t *)malloc(sizeof(node_t));
     if (new_student == NULL) {
         exit(1); 
@@ -30,14 +27,23 @@ bool add_student(roster_t *roster, const char *name, uint8_t grade)
     new_student->data.name = (char *)malloc(strlen(name) + 1);
     if (new_student->data.name == NULL) {
         free(new_student); 
-        exit(1);
+        exit(1); 
     }
     strcpy(new_student->data.name, name);
     new_student->data.grade = grade;
     new_student->next = NULL;
 
+    return new_student;
+}
+
+void add_student_sorted(roster_t *roster, node_t *new_student)
+{
+    node_t *current = roster->students;
+    node_t *prev = NULL;
+
     while (current != NULL) {
-        if (grade < current->data.grade || (grade == current->data.grade && strcmp(name, current->data.name) < 0)) {
+        if (new_student->data.grade < current->data.grade ||
+            (new_student->data.grade == current->data.grade && strcmp(new_student->data.name, current->data.name) < 0)) {
             if (prev == NULL) {
                 new_student->next = roster->students;
                 roster->students = new_student;
@@ -46,7 +52,7 @@ bool add_student(roster_t *roster, const char *name, uint8_t grade)
                 new_student->next = current;
             }
             roster->size++;
-            return true;
+            return;
         }
         prev = current;
         current = current->next;
@@ -58,9 +64,23 @@ bool add_student(roster_t *roster, const char *name, uint8_t grade)
         prev->next = new_student;
     }
     roster->size++;
-    return true;
 }
 
+bool add_student(roster_t *roster, const char *name, uint8_t grade) 
+{
+    node_t *current = roster->students;
+
+    while (current != NULL) {
+        if (strcmp(current->data.name, name) == 0) {
+            return false; 
+        }
+        current = current->next;
+    }
+
+    node_t *new_student = create_student_node(name, grade);
+    add_student_sorted(roster, new_student);
+    return true;
+}
 
 bool remove_student(roster_t *roster, const char *name) 
 {
