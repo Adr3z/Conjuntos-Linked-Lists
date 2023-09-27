@@ -22,7 +22,7 @@ bool add_student(roster_t *roster, const char *name, uint8_t grade)
     node_t *current = roster->students;
     while (current != NULL) {
         if (strcmp(current->data.name, name) == 0) {
-            return false;
+            return false; 
         }
         current = current->next;
     }
@@ -40,18 +40,34 @@ bool add_student(roster_t *roster, const char *name, uint8_t grade)
     strcpy(new_student->data.name, name);
 
     new_student->data.grade = grade;
-    new_student->next = NULL; 
-
-    if (roster->students == NULL) {
-        roster->students = new_student;
-    } else {
-        current = roster->students;
-        while (current->next != NULL) {
-            current = current->next;
-        }
-        current->next = new_student;
-    }
+    new_student->next = roster->students; 
+    roster->students = new_student;
 
     roster->size++;
     return true;
+}
+
+bool remove_student(roster_t *roster, const char *name) 
+{
+    node_t *current = roster->students;
+    node_t *prev = NULL;
+
+    while (current != NULL) {
+        if (strcmp(current->data.name, name) == 0) {
+            if (prev == NULL) {
+                // Si el estudiante a eliminar es el primero, actualiza el inicio del roster
+                roster->students = current->next;
+            } else {
+                prev->next = current->next;
+            }
+            free(current->data.name);
+            free(current);
+            roster->size--;
+            return true;
+        }
+        prev = current;
+        current = current->next;
+    }
+
+    return false; 
 }
