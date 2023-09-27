@@ -223,7 +223,7 @@ static void test_can_add_removed_student(void)
 
 static void test_adding_students_in_multiple_grades(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    TEST_ASSERT_TRUE(add_student(&roster, "Chelsea", 3));
    TEST_ASSERT_TRUE(add_student(&roster, "Logan", 7));
 }
