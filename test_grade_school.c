@@ -390,7 +390,7 @@ static void test_remove_student_from_desired_grade(void)
 
 static void test_student_not_added_to_multiple_grades(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    uint8_t desired_grade = 2;
    student_t expected[] = {
       { 2, "Blair" }, 
