@@ -336,7 +336,7 @@ static void test_grade_empty_if_no_students_in_roster(void)
 
 static void test_grade_empty_if_no_students_in_grade(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    uint8_t desired_grade = 1;
 
    add_student(&roster, "Peter", 2);
