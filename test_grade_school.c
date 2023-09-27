@@ -270,7 +270,7 @@ static void test_student_not_added_to_multiple_grades_in_roster(void)
 
 static void test_students_are_sorted_by_grades_in_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
       { 1, "Anna" }, 
       { 2, "Peter" },
