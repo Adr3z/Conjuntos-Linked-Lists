@@ -31,7 +31,7 @@ static void check_rosters(const student_t *expected_students, size_t expected_si
 
 static void test_roster_is_empty_when_no_student_added(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(0, roster.size);
    TEST_ASSERT_NULL(roster.students);
 }
