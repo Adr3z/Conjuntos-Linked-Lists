@@ -40,3 +40,27 @@ bool add_student(roster_t *roster, const char *name, uint8_t grade)
     roster->size++;
     return true;
 }
+
+bool remove_student(roster_t *roster, const char *name) 
+{
+    node_t *current = roster->students;
+    node_t *prev = NULL;
+
+    while (current != NULL) {
+        if (strcmp(current->data.name, name) == 0) {
+            if (prev == NULL) {
+                roster->students = current->next;
+            } else {
+                prev->next = current->next;
+            }
+            free(current->data.name);
+            free(current);
+            roster->size--;
+            return true;
+        }
+        prev = current;
+        current = current->next;
+    }
+
+    return false; 
+}
