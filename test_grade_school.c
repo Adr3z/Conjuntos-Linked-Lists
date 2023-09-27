@@ -429,7 +429,7 @@ static void test_student_not_added_to_other_grade_for_multiple_grades(void)
 
 static void test_students_are_sorted_by_name_in_grade(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    uint8_t desired_grade = 5;
    student_t expected[] = {
       { 5, "Bradley" }, 
