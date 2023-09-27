@@ -253,7 +253,7 @@ static void test_cannot_add_same_student_to_multiple_grades_in_roster(void)
 
 static void test_student_not_added_to_multiple_grades_in_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
       { 2, "Blair" }, 
       { 2, "James" },
