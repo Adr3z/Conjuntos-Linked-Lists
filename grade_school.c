@@ -105,3 +105,19 @@ bool remove_student(roster_t *roster, const char *name)
 
     return false; 
 }
+
+roster_t get_grade(const roster_t *roster, uint8_t desired_grade) 
+{
+    roster_t result;
+    init_roster(&result);
+
+    node_t *current = roster->students;
+    while (current != NULL) {
+        if (current->data.grade == desired_grade) {
+            add_student(&result, current->data.name, current->data.grade);
+        }
+        current = current->next;
+    }
+
+    return result;
+}
