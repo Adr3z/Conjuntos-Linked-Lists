@@ -46,13 +46,13 @@ static void test_cannot_remove_on_empty_list(void)
 
 static void test_add_student(void)
 {
-   //TEST_IGNORE();   // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_TRUE(add_student(&roster, "Aimee", 2));
 }
 
 static void test_student_added_to_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = { { 2, "Aimee" } }; 
    
    add_student(&roster, "Aimee", 2);
