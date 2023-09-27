@@ -138,7 +138,7 @@ static void test_remove_middle_student(void)
 
 static void test_remove_last_student(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
          { 2, "Blair" }, 
          { 2, "James" },
