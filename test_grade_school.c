@@ -302,7 +302,7 @@ static void test_students_are_sorted_by_name_in_roster(void)
 
 static void test_students_are_sorted_by_grades_and_then_by_names_in_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
       { 1, "Anna" }, 
       { 1, "Barb" },
