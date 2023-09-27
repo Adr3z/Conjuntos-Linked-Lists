@@ -31,14 +31,14 @@ static void check_rosters(const student_t *expected_students, size_t expected_si
 
 static void test_roster_is_empty_when_no_student_added(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(0, roster.size);
    TEST_ASSERT_NULL(roster.students);
 }
 
 static void test_cannot_remove_on_empty_list(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    remove_student(&roster, "Aimee");
    TEST_ASSERT_EQUAL(0, roster.size);
    TEST_ASSERT_NULL(roster.students);
@@ -46,13 +46,13 @@ static void test_cannot_remove_on_empty_list(void)
 
 static void test_add_student(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_TRUE(add_student(&roster, "Aimee", 2));
 }
 
 static void test_student_added_to_roster(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = { { 2, "Aimee" } }; 
    
    add_student(&roster, "Aimee", 2);
@@ -61,7 +61,7 @@ static void test_student_added_to_roster(void)
 
 static void test_remove_student(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    
    TEST_ASSERT_TRUE(add_student(&roster, "Aimee", 2));
    TEST_ASSERT_TRUE(remove_student(&roster, "Aimee"));
@@ -71,7 +71,7 @@ static void test_remove_student(void)
 
 static void test_cannot_remove_student_with_misspeled_name(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    
    TEST_ASSERT_TRUE(add_student(&roster, "Aimee", 2));
    TEST_ASSERT_FALSE(remove_student(&roster, "aimee"));
@@ -81,7 +81,7 @@ static void test_cannot_remove_student_with_misspeled_name(void)
 
 static void test_adding_multiple_students_in_same_grade_in_roster(void)
 {
-  TEST_IGNORE();
+  //TEST_IGNORE();
    
    TEST_ASSERT_TRUE(add_student(&roster, "Blair", 2));
    TEST_ASSERT_TRUE(add_student(&roster, "James", 2));
@@ -211,7 +211,7 @@ static void test_student_not_removed_more_than_once(void)
 
 static void test_can_add_removed_student(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    TEST_ASSERT_TRUE(add_student(&roster, "James", 2));
    TEST_ASSERT_TRUE(add_student(&roster, "Blair", 2));
    TEST_ASSERT_TRUE(remove_student(&roster, "James"));
