@@ -17,26 +17,26 @@ void free_roster(roster_t *roster)
     roster->size = 0;
 }
 
-bool remove_student(roster_t *roster, const char *name) 
+bool add_student(roster_t *roster, const char *name, uint8_t grade) 
 {
-    node_t *current = roster->students;
-    node_t *prev = NULL;
-
+     node_t *current = roster->students;
     while (current != NULL) {
         if (strcmp(current->data.name, name) == 0) {
-            if (prev == NULL) {
-                roster->students = current->next;
-            } else {
-                prev->next = current->next;
-            }
-            free(current->data.name);
-            free(current);
-            roster->size--;
-            return true;
+            return false; 
         }
-        prev = current;
         current = current->next;
     }
 
-    return false; 
+    char *name_copy = (char *)malloc(strlen(name) + 1);
+    assert(name_copy != NULL);
+    strcpy(name_copy, name);
+
+    node_t *new_student = (node_t *)malloc(sizeof(node_t));
+    assert( new_student != NULL);
+    new_student->data.grade = grade;
+    new_student->data.name = name_copy;
+    new_student->next = roster->students;
+    roster->students = new_student;
+    roster->size++;
+    return true;
 }

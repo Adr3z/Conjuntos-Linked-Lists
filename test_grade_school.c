@@ -31,14 +31,14 @@ static void check_rosters(const student_t *expected_students, size_t expected_si
 
 static void test_roster_is_empty_when_no_student_added(void)
 {
-   //TEST_IGNORE();   // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(0, roster.size);
    TEST_ASSERT_NULL(roster.students);
 }
 
 static void test_cannot_remove_on_empty_list(void)
 {
-   //TEST_IGNORE();   // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    remove_student(&roster, "Aimee");
    TEST_ASSERT_EQUAL(0, roster.size);
    TEST_ASSERT_NULL(roster.students);
@@ -46,7 +46,7 @@ static void test_cannot_remove_on_empty_list(void)
 
 static void test_add_student(void)
 {
-   TEST_IGNORE();   // delete this line to run test
+   //TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_TRUE(add_student(&roster, "Aimee", 2));
 }
 

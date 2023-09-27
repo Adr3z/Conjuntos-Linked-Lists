@@ -6,6 +6,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
+
 
 typedef struct {
    uint8_t grade;
