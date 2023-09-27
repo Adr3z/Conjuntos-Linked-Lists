@@ -193,7 +193,7 @@ static void test_student_not_added_to_same_grade_in_roster_more_than_once(void)
 
 static void test_student_not_removed_more_than_once(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    student_t expected[] = {
       { 2, "Blair" }, 
       { 2, "Paul" } 
